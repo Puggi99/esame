@@ -1,0 +1,17 @@
+<mat-card class="book-card" *ngIf="book">
+  <mat-card-title> {{book.title}} </mat-card-title>
+  <mat-card-subtitle class="card-content"*ngIf="book.authors[0]"> <div class="subtitles">Author:</div>{{book.authors[0].name}} </mat-card-subtitle>
+  <mat-card-content class="card-content"> <div class="subtitles">Language:</div> {{book.languages}} </mat-card-content>
+  <mat-card-content class="card-content"> <div class="subtitles">Downloads:</div> {{book.download_count}} </mat-card-content>
+
+  <!-- <mat-card-content>Subjects:
+    <ng-container *ngFor="let subject of book.subjects; let last = last">
+      <ng-container *ngIf="last; else withComma">{{subject}}</ng-container>
+      <ng-template #withComma>{{subject}},<br></ng-template>
+    </ng-container>
+  </mat-card-content> -->
+  <ng-container class="image-container">
+    <img mat-card-image [src]="book.formats['image/jpeg']"  >
+  </ng-container>
+
+</mat-card>
